@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -605,7 +606,27 @@ code {
   .two-column,
   .install,
   .studio-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* let grid/flex children shrink below their content's min-width so
+     wide elements (terminals, images) never force horizontal overflow */
+  .hero > *,
+  .two-column > *,
+  .install > *,
+  .studio-section > *,
+  .context-grid > * {
+    min-width: 0;
+  }
+
+  .terminal,
+  .terminal pre,
+  .diagram img {
+    max-width: 100%;
+  }
+
+  .terminal pre {
+    overflow-x: auto;
   }
 
   .hero-visual {
@@ -621,7 +642,7 @@ code {
   }
 
   .context-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -638,6 +659,11 @@ code {
   .section {
     padding-left: 18px;
     padding-right: 18px;
+  }
+
+  h1,
+  h2 {
+    overflow-wrap: break-word;
   }
 
   .proof-strip,
