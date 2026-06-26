@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KawnGraph - Give agents the map, not the repo</title>
+    <meta
+      name="description"
+      content="KawnGraph is a local-first Agent Context Graph for software projects. Scan code, docs, data, tests, and Git changes into focused Context Packs for coding agents."
+    />
+    <meta property="og:title" content="KawnGraph" />
+    <meta property="og:description" content="Give agents the map, not the repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/xd7fx/kawngraph/main/brand/social-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#101412" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="KawnGraph home">
+        <img src="assets/mark.svg" alt="" width="34" height="34" />
+        <span>KawnGraph</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#how">How it works</a>
+        <a href="#agents">Agents</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#install">Install</a>
+      </nav>
+      <a class="header-cta" href="https://github.com/xd7fx/kawngraph">GitHub</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Local-first Agent Context Graph</p>
+          <h1>Give agents the map, not the repo.</h1>
+          <p class="hero-lede">
+            KawnGraph scans code, docs, data, tests, and Git changes into an
+            evidence-backed project graph, then gives coding agents focused
+            Context Packs for the task at hand.
+          </p>
+
+          <div class="command-card" aria-label="Install command">
+            <code>npx kawngraph setup</code>
+            <button class="copy-button" type="button" data-copy="npx kawngraph setup">Copy</button>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/xd7fx/kawngraph">View on GitHub</a>
+            <a class="button secondary" href="https://www.npmjs.com/package/kawngraph">Open npm</a>
+          </div>
+
+          <dl class="proof-strip" aria-label="KawnGraph guarantees">
+            <div>
+              <dt>Local-first</dt>
+              <dd>No cloud required for scan or retrieval.</dd>
+            </div>
+            <div>
+              <dt>No telemetry</dt>
+              <dd>Your project stays on your machine.</dd>
+            </div>
+            <div>
+              <dt>Read-only MCP</dt>
+              <dd>Agents retrieve context without writing.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-label="KawnGraph product preview">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span></span><span></span><span></span>
+              <strong>kawn check</strong>
+            </div>
+            <pre><code>[PASS] Agent Context Graph: fresh
+[PASS] MCP server resolvable: npx -y @kawngraph/mcp@0.1.1
+[PASS] MCP handshake + retrieval
+[PASS] Integration: claude, codex
+
+healthy - 5 pass - 0 warn - 0 fail</code></pre>
+          </div>
+          <div class="graph-panel" aria-hidden="true">
+            <div class="node node-a">code</div>
+            <div class="node node-b">docs</div>
+            <div class="node node-c">data</div>
+            <div class="node node-d">tests</div>
+            <div class="node node-e">pack</div>
+            <svg viewBox="0 0 500 260" role="img" aria-label="Layered project graph">
+              <path d="M86 84 C176 22 286 42 400 92" />
+              <path d="M92 176 C182 128 292 132 414 174" />
+              <path d="M102 98 C184 152 278 166 388 104" />
+              <path d="M152 206 C232 238 318 222 390 176" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="section two-column" id="problem">
+        <div>
+          <p class="eyebrow">The problem</p>
+          <h2>Coding agents still waste time rereading repositories.</h2>
+        </div>
+        <p>
+          A task often starts with broad file exploration. The agent opens too
+          many files, rebuilds the same mental model, and may still miss the
+          one dependency, route, doc, table, or test that matters.
+        </p>
+      </section>
+
+      <section class="section" id="how">
+        <p class="eyebrow">How it works</p>
+        <h2>Scan once. Serve precise context.</h2>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Scan</h3>
+            <p>Read project structure locally: code, Markdown, SQL, packages, tests, and Git changes.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Graph</h3>
+            <p>Build a layered graph with evidence on relationships, stable IDs, and freshness metadata.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Context Pack</h3>
+            <p>Return the few files, docs, tables, risks, and tests relevant to a specific task.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Agent</h3>
+            <p>Expose retrieval through CLI, MCP, and Studio without making agents read the full repo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="agents">
+        <p class="eyebrow">Agent support</p>
+        <h2>One project universe. Every coding agent.</h2>
+        <div class="agent-grid">
+          <span>Claude Code</span>
+          <span>Codex</span>
+          <span>Cursor</span>
+          <span>GitHub Copilot</span>
+          <span>Gemini CLI</span>
+          <span>Aider</span>
+          <span>Generic export</span>
+          <span>Local LLMs</span>
+        </div>
+      </section>
+
+      <section class="section studio-section" id="studio">
+        <div class="studio-copy">
+          <p class="eyebrow">Studio</p>
+          <h2>Inspect the graph locally.</h2>
+          <p>
+            `kawn map` opens a local, read-only explorer for the existing
+            `.kawn/graph.json`: 2D graph, 3D Universe view, Context Pack builder,
+            impact analysis, Git change views, and benchmark reports.
+          </p>
+        </div>
+        <div class="studio-shots">
+          <img src="https://raw.githubusercontent.com/xd7fx/kawngraph/main/docs/assets/studio-universe.webp" alt="KawnGraph Studio Universe view" />
+          <img src="https://raw.githubusercontent.com/xd7fx/kawngraph/main/docs/assets/studio-map.webp" alt="KawnGraph Studio 2D graph view" />
+        </div>
+      </section>
+
+      <section class="section privacy" id="privacy">
+        <p class="eyebrow">Privacy model</p>
+        <h2>Built for local control.</h2>
+        <div class="privacy-grid">
+          <article>
+            <h3>No telemetry</h3>
+            <p>KawnGraph does not phone home during scan or retrieval.</p>
+          </article>
+          <article>
+            <h3>No internal LLM required</h3>
+            <p>Core scanning and Context Packs are deterministic.</p>
+          </article>
+          <article>
+            <h3>Project-scoped setup</h3>
+            <p>Agent integrations are reversible and scoped to the repository.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section install" id="install">
+        <div>
+          <p class="eyebrow">Install</p>
+          <h2>Start with one command.</h2>
+        </div>
+        <div class="install-card">
+          <div class="command-card">
+            <code>npx kawngraph setup</code>
+            <button class="copy-button" type="button" data-copy="npx kawngraph setup">Copy</button>
+          </div>
+          <div class="command-list">
+            <code>kawn check</code>
+            <code>kawn map</code>
+            <code>kawn ask "fix the OAuth callback"</code>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>KawnGraph</strong>
+        <p>Give agents the map, not the repo.</p>
+      </div>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/xd7fx/kawngraph">GitHub</a>
+        <a href="https://www.npmjs.com/package/kawngraph">npm</a>
+        <a href="https://github.com/xd7fx/kawngraph#readme">Docs</a>
+        <a href="https://github.com/sponsors/xd7fx">Sponsor</a>
+      </nav>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
