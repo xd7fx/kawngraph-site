@@ -8,11 +8,13 @@
       name="description"
       content="KawnGraph is a local-first Agent Context Graph for software projects. Scan code, docs, data, tests, and Git changes into focused Context Packs for coding agents."
     />
-    <meta property="og:title" content="KawnGraph" />
-    <meta property="og:description" content="Give agents the map, not the repo." />
+    <meta property="og:title" content="KawnGraph - The Agent Context Universe" />
+    <meta property="og:description" content="One project universe, every coding agent. Give agents the map, not the repo." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/xd7fx/kawngraph/main/brand/social-card.svg" />
+    <meta property="og:url" content="https://xd7fx.github.io/kawngraph-site/" />
+    <meta property="og:image" content="https://xd7fx.github.io/kawngraph-site/assets/social-card.svg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://xd7fx.github.io/kawngraph-site/assets/social-card.svg" />
     <meta name="theme-color" content="#101412" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
@@ -25,8 +27,9 @@
       </a>
       <nav class="nav" aria-label="Primary navigation">
         <a href="#how">How it works</a>
+        <a href="#context">Context Packs</a>
         <a href="#agents">Agents</a>
-        <a href="#privacy">Privacy</a>
+        <a href="#studio">Studio</a>
         <a href="#install">Install</a>
       </nav>
       <a class="header-cta" href="https://github.com/xd7fx/kawngraph">GitHub</a>
@@ -35,7 +38,7 @@
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Local-first Agent Context Graph</p>
+          <p class="eyebrow">The Agent Context Universe</p>
           <h1>Give agents the map, not the repo.</h1>
           <p class="hero-lede">
             KawnGraph scans code, docs, data, tests, and Git changes into an
@@ -104,9 +107,11 @@ healthy - 5 pass - 0 warn - 0 fail</code></pre>
           <h2>Coding agents still waste time rereading repositories.</h2>
         </div>
         <p>
-          A task often starts with broad file exploration. The agent opens too
-          many files, rebuilds the same mental model, and may still miss the
-          one dependency, route, doc, table, or test that matters.
+          When you give an agent a task, it usually starts by reading — a lot. It
+          opens dozens of files, re-derives how routes reach the database, and
+          rebuilds the same mental model every request. That is slow,
+          token-expensive, and often inaccurate: the agent misses the one file
+          that matters and drowns in five that do not.
         </p>
       </section>
 
@@ -135,6 +140,78 @@ healthy - 5 pass - 0 warn - 0 fail</code></pre>
             <p>Expose retrieval through CLI, MCP, and Studio without making agents read the full repo.</p>
           </article>
         </div>
+
+        <figure class="diagram">
+          <img
+            src="assets/architecture.svg"
+            loading="lazy"
+            alt="KawnGraph reads your repo with deterministic scanners into one layered graph at .kawn/graph.json (code, data, config, docs, test layers), served read-only to the kawn CLI, the MCP server, and Studio. No network, no LLM, no telemetry."
+          />
+          <figcaption>Deterministic scanners build one layered graph, served read-only to the CLI, MCP, and Studio.</figcaption>
+        </figure>
+
+        <div class="layers">
+          <div><span class="dot dot-code"></span><strong>code</strong><p>files, functions, classes, imports, calls, routes</p></div>
+          <div><span class="dot dot-data"></span><strong>data</strong><p>SQL tables, migrations, foreign keys</p></div>
+          <div><span class="dot dot-config"></span><strong>config</strong><p>workspace packages, dependencies</p></div>
+          <div><span class="dot dot-docs"></span><strong>docs</strong><p>markdown sections, links, mentions</p></div>
+          <div><span class="dot dot-test"></span><strong>test</strong><p>tests and what they cover</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="context">
+        <p class="eyebrow">Context Packs</p>
+        <h2>The graph is the substrate. The Context Pack is the product.</h2>
+        <div class="context-grid">
+          <figure class="diagram flow">
+            <img
+              src="assets/context-pack-flow.svg"
+              loading="lazy"
+              alt="A task flows into KawnGraph, which returns a token-budgeted Context Pack: must-read files, related docs, tables, tests, risks, an excluded list, and a confidence score."
+            />
+          </figure>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span></span><span></span><span></span>
+              <strong>kawn ask</strong>
+            </div>
+            <pre><code>$ kawn ask "fix the Zid OAuth callback that writes store tokens"
+
+Must-read
+  app/api/zid/oauth/callback/route.ts   entry route
+  packages/zid/src/oauth.ts             token exchange
+  packages/db/.../storeTokens.ts        writes store_tokens
+Docs
+  docs/zid-oauth-core.md#callback-flow  expected behaviour
+Tables    store_tokens (written) · merchants (fk)
+Tests     oauth.test.ts
+Risks     token encryption · tenant isolation
+Excluded  unrelated UI (over budget) · confidence 0.6</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="mcp">
+        <p class="eyebrow">Read-only MCP</p>
+        <h2>Four retrieval tools. Zero writes.</h2>
+        <div class="tools">
+          <article>
+            <code>kawn_context</code>
+            <p>Token-budgeted Context Pack for a task.</p>
+          </article>
+          <article>
+            <code>kawn_query</code>
+            <p>Ranked, mode-scoped search over the graph.</p>
+          </article>
+          <article>
+            <code>kawn_affected</code>
+            <p>Reverse impact: what depends on a symbol.</p>
+          </article>
+          <article>
+            <code>kawn_changes</code>
+            <p>Impact of the current change set. Local git only.</p>
+          </article>
+        </div>
       </section>
 
       <section class="section" id="agents">
@@ -157,15 +234,44 @@ healthy - 5 pass - 0 warn - 0 fail</code></pre>
           <p class="eyebrow">Studio</p>
           <h2>Inspect the graph locally.</h2>
           <p>
-            `kawn map` opens a local, read-only explorer for the existing
-            `.kawn/graph.json`: 2D graph, 3D Universe view, Context Pack builder,
-            impact analysis, Git change views, and benchmark reports.
+            <code>kawn map</code> opens a local, read-only explorer for the
+            existing <code>.kawn/graph.json</code>: an interactive 2D graph, a
+            scalable 3D Universe view, a Context Pack builder, reverse-impact,
+            Git change views, and benchmark reports. Served over
+            <code>127.0.0.1</code> — it never scans, rebuilds, or writes.
           </p>
         </div>
         <div class="studio-shots">
-          <img src="https://raw.githubusercontent.com/xd7fx/kawngraph/main/docs/assets/studio-universe.webp" alt="KawnGraph Studio Universe view" />
-          <img src="https://raw.githubusercontent.com/xd7fx/kawngraph/main/docs/assets/studio-map.webp" alt="KawnGraph Studio 2D graph view" />
+          <figure>
+            <img
+              src="assets/studio-universe.webp"
+              loading="lazy"
+              alt="KawnGraph Studio — the read-only 3D Universe view of this repository's own graph: 1,261 nodes clustered by layer with connection lines and per-layer filters."
+            />
+            <figcaption>The 3D <b>Universe</b> view — this repository's own graph (1,261 nodes), read-only.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="assets/studio-map.webp"
+              loading="lazy"
+              alt="KawnGraph Studio — the 2D graph view of the bundled example project: files, functions, routes, tables, and docs as nodes with labeled evidence-backed edges."
+            />
+            <figcaption>The 2D <b>graph</b> view — the bundled example project, with layer / type / edge filters.</figcaption>
+          </figure>
         </div>
+      </section>
+
+      <section class="section bench" id="benchmarks">
+        <p class="eyebrow">Benchmarks</p>
+        <h2>Honest, and task-dependent.</h2>
+        <p class="bench-lede">
+          KawnGraph ships a local A/B harness that runs the same agent on the
+          same task <b>with vs without</b> KawnGraph. Results are honest and
+          task-dependent — including neutral and negative cases. It can reduce
+          repository exploration on unfamiliar multi-file work, while adding
+          overhead on already-focused tasks.
+        </p>
+        <a class="button secondary" href="https://github.com/xd7fx/kawngraph/blob/main/docs/BENCHMARKS.md">Read the methodology</a>
       </section>
 
       <section class="section privacy" id="privacy">
@@ -215,6 +321,7 @@ healthy - 5 pass - 0 warn - 0 fail</code></pre>
         <a href="https://github.com/xd7fx/kawngraph">GitHub</a>
         <a href="https://www.npmjs.com/package/kawngraph">npm</a>
         <a href="https://github.com/xd7fx/kawngraph#readme">Docs</a>
+        <a href="https://www.linkedin.com/in/abdulrahman-alnashri-ai/">LinkedIn</a>
         <a href="https://github.com/sponsors/xd7fx">Sponsor</a>
       </nav>
     </footer>

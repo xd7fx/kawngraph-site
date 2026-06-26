@@ -443,6 +443,133 @@ code {
   background: var(--surface-strong);
 }
 
+/* Real KawnGraph diagrams (self-contained dark cards) */
+.diagram {
+  margin: 36px 0 0;
+}
+
+.diagram img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.diagram figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Layer chips under the architecture diagram */
+.layers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.layers div {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.layers strong {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.layers p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.dot-code { background: #2563eb; }
+.dot-data { background: #b45309; }
+.dot-config { background: #475569; }
+.dot-docs { background: #059669; }
+.dot-test { background: #0d9488; }
+
+/* Context Pack: flow diagram + terminal side by side */
+.context-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 44px);
+  align-items: center;
+  margin-top: 28px;
+}
+
+.diagram.flow {
+  margin: 0;
+}
+
+.context-grid .terminal {
+  width: 100%;
+}
+
+.context-grid .terminal pre {
+  white-space: pre;
+}
+
+/* MCP retrieval tools */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.tools article {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.tools code {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--surface-strong);
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.tools p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* Benchmarks */
+.bench-lede {
+  max-width: 760px;
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 1.12rem;
+}
+
+/* Inline code inside dark studio copy */
+.studio-copy code {
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #dffcf3;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -487,8 +614,14 @@ code {
 
   .steps,
   .agent-grid,
-  .privacy-grid {
+  .privacy-grid,
+  .tools,
+  .layers {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .context-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -510,8 +643,14 @@ code {
   .proof-strip,
   .steps,
   .agent-grid,
-  .privacy-grid {
+  .privacy-grid,
+  .tools,
+  .layers {
     grid-template-columns: 1fr;
+  }
+
+  .context-grid .terminal pre {
+    white-space: pre-wrap;
   }
 
   .hero-actions,

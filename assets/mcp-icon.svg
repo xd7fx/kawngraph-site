@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="kg-mcp-title kg-mcp-desc">
+  <title id="kg-mcp-title">KawnGraph MCP</title>
+  <desc id="kg-mcp-desc">The KawnGraph universe mark with a connector badge, marking the read-only MCP server.</desc>
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#070A0F"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="#22C7A9" stroke-opacity="0.18"/>
+  <!-- universe mark, nudged up-left to clear the connector badge -->
+  <g transform="translate(28 27) scale(0.82) translate(-32 -32)">
+    <g fill="none" stroke="#4C8DFF" stroke-width="1.4" opacity="0.4">
+      <ellipse cx="32" cy="32" rx="23" ry="9" transform="rotate(-20 32 32)"/>
+      <ellipse cx="32" cy="32" rx="10" ry="23" transform="rotate(15 32 32)"/>
+    </g>
+    <g stroke="#22C7A9" stroke-width="1.6" opacity="0.65" stroke-linecap="round">
+      <line x1="32" y1="32" x2="42" y2="14"/>
+      <line x1="32" y1="32" x2="43" y2="50"/>
+      <line x1="32" y1="32" x2="11" y2="32"/>
+    </g>
+    <circle cx="42" cy="14" r="4.2" fill="#4C8DFF"/>
+    <circle cx="43" cy="50" r="4" fill="#F6C85F"/>
+    <circle cx="11" cy="32" r="4.6" fill="#42D392"/>
+    <circle cx="32" cy="32" r="8.5" fill="#22C7A9"/>
+    <ellipse cx="32" cy="32" rx="15" ry="5" fill="none" stroke="#F4F7FB" stroke-width="2" opacity="0.85" transform="rotate(-22 32 32)"/>
+  </g>
+  <!-- connector badge: a plug entering a port -->
+  <g transform="translate(48 48)">
+    <circle cx="0" cy="0" r="12" fill="#4C8DFF"/>
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#070A0F" stroke-width="2"/>
+    <g fill="none" stroke="#070A0F" stroke-width="2" stroke-linecap="round">
+      <path d="M-5 -3V0M0 -6V0"/>
+      <path d="M-7 0H2a3 3 0 0 1 3 3 4 4 0 0 1 -4 4H-3"/>
+      <path d="M-3 7V10"/>
+    </g>
+  </g>
+</svg>

@@ -26,4 +26,5 @@ For GitHub Pages:
 
 - Product repository: https://github.com/xd7fx/kawngraph
 - npm: https://www.npmjs.com/package/kawngraph
+- LinkedIn: https://www.linkedin.com/in/abdulrahman-alnashri-ai/
 - Sponsor: https://github.com/sponsors/xd7fx
